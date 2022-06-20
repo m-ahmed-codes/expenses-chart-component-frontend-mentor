@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Expense Chart Component</title>
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: hsl(27, 66%, 92%);
+        }
+
+        .bg-orange {
+            background-color: hsl(10, 79%, 65%);
+            border-radius: 20px;
+
+        }
+
+        .bg-orange span {
+            font-size: 14px;
+
+        }
+
+        .bg-radius {
+            border-radius: 20px;
+        }
+
+        .block-mon {
+            background-color: hsl(10, 79%, 65%);
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .block-mon+p {
+            font-size: 15px;
+            color: grey;
+        }
+
+        .block-tue {
+            background-color: hsl(10, 79%, 65%);
+            width: 40px;
+            height: 85px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .block-tue+p {
+            font-size: 15px;
+            color: grey;
+        }
+
+        .block-wed {
+            background-color: hsl(186, 34%, 60%);
+            width: 40px;
+            height: 130px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .block-wed+p {
+            font-size: 15px;
+            color: grey;
+        }
+
+        .block-thur {
+            background-color: hsl(10, 79%, 65%);
+            width: 40px;
+            height: 65px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .block-thur+p {
+            font-size: 15px;
+            color: grey;
+        }
+
+        .block-fri {
+            background-color: hsl(10, 79%, 65%);
+            width: 40px;
+            height: 49px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .block-fri+p {
+            font-size: 15px;
+            color: grey;
+        }
+
+        .block-sat {
+            background-color: hsl(10, 79%, 65%);
+            width: 40px;
+            height: 110px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .block-sat+p {
+            font-size: 15px;
+            color: grey;
+        }
+
+        .block-sun {
+            background-color: hsl(10, 79%, 65%);
+            width: 40px;
+            height: 65px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .block-sun+p {
+            font-size: 15px;
+            color: grey;
+        }
+
+        .hr {
+            color: hsl(10, 79%, 65%);
+            /* color: hsl(33, 100%, 98%); */
+        }
+
+        .span {
+            font-size: 15px;
+        }
+
+        .para {
+            font-size: 15px;
+            color: grey;
+        }
+        .para-amount{
+            background-color: black;
+            width: fit-content;
+        }
+        .box1{
+            background-color: hsl(33, 100%, 98%);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="pt-4">
+        <div class="container pt-4">
+            <div class="row justify-content-center pt-5">
+                <div class="col-11 col-md-7 col-lg-5">
+                    <div class=" bg-orange ">
+                        <div class="row justify-content-between">
+                            <div class="col-5 col-md-5 ps-4 py-2">
+                                <span class="text-light">My Balance</span><br>
+                                <h4 class="text-light d-inline-block pt">$932.48</h4>
+                            </div>
+                            <div class="col-3 me-3 me-md-2 col-sm-3 col-md-4 col-lg-3 d-inline  text-end ">
+                                <img class="py-3" src="./images/logo.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-2 pb-5">
+        <div class="container py-2">
+            <div class="row justify-content-center pb-3 ">
+                <div class="col-11 col-md-7 col-lg-5">
+                    <div class=" bg-light bg-radius ">
+                        <h4 class="p-3">Spending-Last 7 days</h4>
+                        <div class="row  justify-content-evenly align-items-end">
+
+                            <div class="col-1 px-0 " >
+                                <p class="text-center text-light rounded-3 para-amount " id="box1-para"></p>
+                                <div class="block-mon pt-2" id="box-1">
+                                </div>
+                                <p class="m-0 text-center ">mon</p>
+                            </div>
+
+                            <div class="col-1 px-0" >
+                                <p class="text-center text-light rounded-3 para-amount" id="box2-para"></p>
+                                <div class="block-tue " id="box-2">
+                                </div>
+                                <p class="m-0 text-center">tue</p>
+                            </div>
+
+                            <div class="col-1 px-0" >
+                                <p class="text-center text-light rounded-3 para-amount" id="box3-para"></p>
+                                <div class="block-wed " id="box-3">
+                                </div>
+                                <p class="m-0 text-center">wed</p>
+                            </div>
+
+                            <div class="col-1 px-0" >
+                                <p class="text-center text-light rounded-3 para-amount" id="box4-para"></p>
+                                <div class="block-thur " id="box-4">
+                                </div>
+                                <p class="m-0 text-center">thur</p>
+                            </div>
+
+                            <div class="col-1 px-0" >
+                                <p class="text-center text-light rounded-3 para-amount" id="box5-para"></p>
+                                <div class="block-fri " id="box-5">
+
+                                </div>
+                                <p class="m-0 text-center">fri</p>
+                            </div>
+                            <div class="col-1 px-0" >
+                                <p class="text-center text-light rounded-3 para-amount" id="box6-para"></p>
+                                <div class="block-sat " id="box-6">
+                                </div>
+                                <p class="m-0 text-center">sat</p>
+                            </div>
+
+                            <div class="col-1 px-0" >
+                                <p class="text-center text-light rounded-3 para-amount" id="box7-para"></p>
+                                <div class="block-sun " id="box-7">
+                                </div>
+                                <p class="m-0 text-center">sun</p>
+                            </div>
+
+
+                        </div>
+                        <hr class="hr m-0 mb-1">
+                        <div class="row justify-content-between">
+                            <div class="col-5 col-md-5 ps-4 py-2">
+                                <span class="span">Total this month</span><br>
+                                <h4 class="fs-2 fw-bolder d-inline-block pt">$478.33</h4>
+                            </div>
+                            <div class="col-5 me-2 me-md-2 col-sm-4 col-md-4 col-lg-5 d-inline py-2  ">
+                                <p class="m-0 text-end  pt-md-2">+2.4%</p>
+                                <p class="para text-end m-0">from last month</p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+
+
+        let box1 = document.querySelector('#box-1')
+        let box2 = document.querySelector('#box-2')
+        let box3 = document.querySelector('#box-3')
+        let box4 = document.querySelector('#box-4')
+        let box5 = document.querySelector('#box-5')
+        let box6 = document.querySelector('#box-6')
+        let box7 = document.querySelector('#box-7')
+        let paraBox1 = document.querySelector('#box1-para')
+        let paraBox2 = document.querySelector('#box2-para')
+        let paraBox3 = document.querySelector('#box3-para')
+        let paraBox4 = document.querySelector('#box4-para')
+        let paraBox5 = document.querySelector('#box5-para')
+        let paraBox6 = document.querySelector('#box6-para')
+        let paraBox7 = document.querySelector('#box7-para')
+
+
+
+        // EmptyText()
+        let xhr = new XMLHttpRequest()
+
+        xhr.onload = function () {
+            let obj = JSON.parse(this.responseText)
+            obj.forEach((item) => {
+                
+                box1.addEventListener('click', () => {
+                    if (item.day === 'mon') {
+                        EmptyText()
+                        emptyStyle()
+                        paraBox1.innerHTML = `$${item.amount}`
+                        box1.style.backgroundColor = 'hsl(10.5, 83.2%, 74.3%)'                        
+                    }
+                })
+                box2.addEventListener('click', () => {
+                    if (item.day === 'tue') {
+                        EmptyText()
+                        emptyStyle()
+                        paraBox2.innerHTML = `$${item.amount}`
+                        box2.style.backgroundColor = 'hsl(10.5, 83.2%, 74.3%)'                        
+                    } 
+                })
+                box3.addEventListener('click', () => {
+                    if (item.day === 'wed') {
+                        EmptyText()
+                        emptyStyle()
+                        paraBox3.innerHTML = `$${item.amount}`
+                        box3.style.backgroundColor = 'hsl(186, 34%, 75%)'                        
+                    }
+         
+                })
+                
+                
+                
+                box4.addEventListener('click', () => {
+                    if (item.day === 'thu') {
+                        EmptyText()
+                        emptyStyle()
+                        paraBox4.innerHTML = `$${item.amount}`
+                        box4.style.backgroundColor = 'hsl(10.5, 83.2%, 74.3%)'                        
+                    }
+                    
+                })
+                box5.addEventListener('click', () => {
+                    if (item.day === 'fri') {
+                        EmptyText()
+                        emptyStyle()
+                        paraBox5.innerHTML = `$${item.amount}`
+                        box5.style.backgroundColor = 'hsl(10.5, 83.2%, 74.3%)'                        
+                    }
+                })
+                box6.addEventListener('click', () => {
+                    if (item.day === 'sat') {
+                        EmptyText()
+                        emptyStyle()
+                        paraBox6.innerHTML = `$${item.amount}`
+                        box6.style.backgroundColor = 'hsl(10.5, 83.2%, 74.3%)'                        
+                    }
+                })
+                box7.addEventListener('click', () => {
+                    if (item.day === 'sun') {
+                        EmptyText()
+                        emptyStyle()
+                        paraBox7.innerHTML = `$${item.amount}`
+                        box7.style.backgroundColor = 'hsl(10.5, 83.2%, 74.3%)'                        
+                    }
+                })
+
+
+                function EmptyText(){
+                    paraBox1.innerText = ''
+                    paraBox2.innerText = ''
+                    paraBox3.innerText = ''
+                    paraBox4.innerText = ''
+                    paraBox5.innerText = ''
+                    paraBox6.innerText = ''
+                    paraBox7.innerText = ''
+
+
+
+                   
+
+                }
+
+                function emptyStyle(){
+                    box1.style.backgroundColor = ''
+                    box2.style.backgroundColor = ''
+                    box3.style.backgroundColor = ''
+                    box4.style.backgroundColor = ''
+                    box5.style.backgroundColor = ''
+                    box6.style.backgroundColor = ''
+                    box7.style.backgroundColor = ''
+                  
+
+                }
+
+
+
+
+            })
+        }
+
+        xhr.open('GET', 'data.json', true)
+        xhr.send()
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
